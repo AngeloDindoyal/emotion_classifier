@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="description" content="Facial emotion classifier">
+        <meta name="keywords" content="Facial Emotion Recognizer, FER, machine learning, artificial intelligence, AI">
+        <meta name="author" content="Angelo Dindoyal">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Facial Emotion Recognizer</title>
+        <link rel="stylesheet" href="/static/style.css">
+    </head>
+    <body>
+        <div id="header">
+            <h1>Facial Emotion Classifier</h1>
+        </div>
+        <div id="box">
+            <p id="info"> This is a facial emotion classifier. It takes an image of a person and determines the emotion that the person has on their face. 
+                This model is about ~62% accurate and can detect up to these seven emotions: angry, disgust, fear, happy, sad, suprise, and neutral. 
+                Acceptable image formats: .jpg, .jpeg, .png.</p>
+            <div id="input_image_container">
+                <canvas id="image_canvas" style="display:none;"></canvas>
+                <img src="#" id="input_image" style="top:5vh;"></div>
+            <div>
+                <label for="image">Choose Image to Label: </label>
+                <input type="file" id="image" accept="image/*" >
+            </div>
+            <br>
+            
+            <button id="btn">Submit</button>
+        </div>
+        <div id="output_text"></div>
+        <table id="output_chart"></table>
+        <script src="/static/script.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+    </body>
+</html>
