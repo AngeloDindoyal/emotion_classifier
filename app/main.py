@@ -17,9 +17,9 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-app.mount("/static", StaticFiles(directory="/code/app/static"), name="static")
+app.mount("/static", StaticFiles(directory="/code/static"), name="static")
 
-templates = Jinja2Templates(directory="/code/app/templates") 
+templates = Jinja2Templates(directory="/code/templates") 
 
 class ImageData(BaseModel):
     image: list[float]
@@ -35,7 +35,7 @@ def index(req: Request):
 async def predict(data: ImageData):
     image_array = np.array(data.image, dtype=np.float32)
     image_array = image_array.reshape((1, 48, 48, 1))
-    model = tf.keras.models.load_model("/code/app/static/fer_custom.h5")
+    model = tf.keras.models.load_model("/code/static/fer_custom.h5")
     model.compile(optimizer='adam', loss='sparse_categorical_crossentropy', metrics=['accuracy'])
     result = model.predict(image_array)
     
